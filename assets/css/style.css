@@ -1,5 +1,9 @@
 body {
-	background-color: #000000;
+	background: url("../images/got.jpeg")no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
 
 h2{
@@ -13,9 +17,15 @@ h2{
 	text-align: center;
 }
 .jumbotron{
-	background-image: url("../images/got.jpeg");
-
-
+	background: url("../images/got2.jpeg")no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	opacity: 0.4;
+	height: 80%;
+	width: 70%;
+	margin:5% 0 5% 3.5%;
 }
 #startButton{
 	width: 200px;
@@ -29,8 +39,11 @@ h2{
 .answers {
 	color:#ffffff;
 	font-size: 30px;
-	
 }
 .ahover:hover {
 	background-color: grey;
+}
+.score{
+	color: #ffffff;
+	font-size: 30px;
 }

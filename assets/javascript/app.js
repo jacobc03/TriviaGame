@@ -3,42 +3,42 @@
 var allQuestions = [{
     question: 'What is the last name of a bastard child born of the North?',
     choices: ['Sand', 'Storm', 'Snow', 'Flowers'],
-    correctAnswer: 3
+    correctAnswer: 2
 },
 {
     question: 'Who pushed young Bran Stark out of the window in season one?',
     choices: ['Tyrion Lannister', 'Jammie Lannister', 'Theon Greyjoy', 'Khal Drogo'],
-    correctAnswer: 2
+    correctAnswer: 1
 },
 {
     question: 'Who raised the Dire Wolf named Ghost?',
     choices: ['Jon Snow', 'Sansa Stark', 'Eddard Stark', 'Bran Stark'],
-    correctAnswer: 1
+    correctAnswer: 0
 },
 {   
     question: 'How many Dragons does Daenerys Targaryen have?',
     choices: ['3', '1', '5', '6'],
-    correctAnswer: 1
+    correctAnswer: 0
 },
 {
     question: 'What was the name of the sinister castle where Arya and Gendry were held prisoner in season two?',
     choices: ['Casterly Rock', 'Moat Cailin', 'Harrenhal', 'Kings Landing'],
-    correctAnswer: 3
+    correctAnswer: 2
 },
 {   
     question: 'What is the name of the so-called King Beyond the Wall, the leader of the Wildings?',
     choices: ['Jeor Mormont', 'Mance Rayder', 'Qhorin Halfhand', 'Jon Snow'],
-    correctAnswer: 2
+    correctAnswer: 1
 },
 {
     question: 'What is the name of a person that can enter the minds of animals?',
     choices: ['A sellsword', 'Grand Maester', 'A warg', 'A wizard'],
-    correctAnswer: 3
+    correctAnswer: 2
 },
 {   
     question: 'Which Stark child was proclaimed King of the North?',
     choices: ['Rickon', 'Arya Stark', 'Bran Stark', 'Robb Stark'],
-    correctAnswer: 4
+    correctAnswer: 3
 }];
 //Game Starts when the start button is clicked
 $('#startButton').click(function(){
@@ -47,6 +47,7 @@ $('#startButton').click(function(){
     var currentQuestion = 0;
     var rightAnswers=0;
     var wrongAnswers=0;
+    var unAnswered=0;
     var div1= $("<div>");
     var div2= $('<div>');
     var div3= $('<div>');
@@ -64,6 +65,13 @@ $('#startButton').click(function(){
         div3.attr('class',"answers ahover");
         div4.attr('class',"answers ahover");
         div5.attr('class',"answers ahover");
+    }
+    function gameAreaScoreboard(){
+        div1.html("All done, heres how you did!");
+        div2.html("Correct Answers:"+rightAnswers);
+        div3.html("Wrong Answers:"+rightAnswers);
+        div4.html("Unanswered:"+unAnswered);
+        div5.html().empty;
     }
 //call gameAreaUpdate fuction when start button is clicked.
     gameAreaUpdate();
@@ -92,6 +100,8 @@ $('#startButton').click(function(){
          time=10;
          $("#timeRemain").html(time);
         startTimer();
+        unAnswered++;
+        console.log("unAnswered"+unAnswered);
          
 
       } 
@@ -99,32 +109,31 @@ $('#startButton').click(function(){
 
 $('div.answers').click(function(){
     var userPick=$(this).html();
-    if (userPick==allQuestions[currentQuestion].choices[correctAnswer]) {
+    if (userPick==allQuestions[currentQuestion].choices[allQuestions[currentQuestion].correctAnswer]) {
         rightAnswers++;
+        currentQuestion++;
         time=10;
         $("#timeRemain").html(time);
         clearInterval(counter);
         startTimer();
-        currentQuestion++;
         gameAreaUpdate();
         console.log("right:" + rightAnswers);
-    }else{
+    } else{
         wrongAnswers++;
+        currentQuestion++;
         time=10;
-    $("#timeRemain").html(time);
-    clearInterval(counter);
-    startTimer();
-    currentQuestion++;
-    gameAreaUpdate();
-    console.log("wrong"+wrongAnswers);
-    }
-    
+        $("#timeRemain").html(time);
+        clearInterval(counter);
+        startTimer();      
+        gameAreaUpdate();
+        console.log("wrong"+wrongAnswers);
 
+    }
 });
 
 
 
 
-    })
+})
 
 
