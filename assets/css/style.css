@@ -60,5 +60,9 @@ h2{
 	display: none;
 }
 .color{
-	color: white;
+	color: #ffffff;
+}
+.picked{
+	color:red;
+	font-size: 40px;
 }
