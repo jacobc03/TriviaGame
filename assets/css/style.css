@@ -32,6 +32,12 @@ h2{
 	height: 40px;
 	font-size: 20px;
 }
+#restartButton{
+	width: 200px;
+	height: 40px;
+	font-size: 20px;
+	display: none;
+}
 .questions{
 	color:#ffffff;
 	font-size: 30px;
@@ -46,4 +52,13 @@ h2{
 .score{
 	color: #ffffff;
 	font-size: 30px;
+}
+#pickMade{
+	color: white;
+}
+#time{
+	display: none;
+}
+.color{
+	color: white;
 }
